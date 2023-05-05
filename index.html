@@ -47,6 +47,21 @@
 		text-align: center;
 		font-size: 18px;
 	}
+	.phone-button {
+		background-color: #ffffff;
+	}.phone-button:hover {
+		background-color: #999999;
+	}
+	.phone-button-black {
+		background-color: #000000;
+	}.phone-button-black:hover {
+		background-color: #999999;
+	}
+	.phone-button-red {
+		background-color: red;
+	}.phone-button-red:hover {
+		background-color: #999999;
+	}
   </style>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -74,18 +89,18 @@
 			<tbody>
 				<tr>
 					<th scope="row" colspan="2">Stop</th>
-					<th colspan="1" id="p">p</th>
-					<th colspan="1" id="b">b</th>
+					<th colspan="1" id="p" class="phone-button" onClick="reverseClick(0)">p</th>
+					<th colspan="1" id="b" class="phone-button" onClick="reverseClick(1)">b</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="t">t</th>
-					<th colspan="1" id="d">d</th>
+					<th colspan="1" id="t" class="phone-button" onClick="reverseClick(2)">t</th>
+					<th colspan="1" id="d" class="phone-button" onClick="reverseClick(3)">d</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="k">k</th>
-					<th colspan="1" id="g">g</th>
+					<th colspan="1" id="k" class="phone-button" onClick="reverseClick(4)">k</th>
+					<th colspan="1" id="g" class="phone-button" onClick="reverseClick(5)">g</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 				</tr>
@@ -93,17 +108,17 @@
 					<th scope="row" colspan="2">Fricative</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="f">f</th>
-					<th colspan="1" id="v">v</th>
-					<th colspan="1" id="θ">θ</th>
-					<th colspan="1" id="ð">ð</th>
-					<th colspan="1" id="s">s</th>
-					<th colspan="1" id="z">z</th>
-					<th colspan="1" id="ʃ">ʃ</th>
-					<th colspan="1" id="ʒ">ʒ</th>
+					<th colspan="1" id="f" class="phone-button" onClick="reverseClick(6)">f</th>
+					<th colspan="1" id="v" class="phone-button" onClick="reverseClick(7)">v</th>
+					<th colspan="1" id="θ" class="phone-button" onClick="reverseClick(10)">θ</th>
+					<th colspan="1" id="ð" class="phone-button" onClick="reverseClick(11)">ð</th>
+					<th colspan="1" id="s" class="phone-button" onClick="reverseClick(8)">s</th>
+					<th colspan="1" id="z" class="phone-button" onClick="reverseClick(9)">z</th>
+					<th colspan="1" id="ʃ" class="phone-button" onClick="reverseClick(12)">ʃ</th>
+					<th colspan="1" id="ʒ" class="phone-button" onClick="reverseClick(13)">ʒ</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="h">h</th>
+					<th colspan="1" id="h" class="phone-button" onClick="reverseClick(14)">h</th>
 					<th colspan="1"></th>
 				</tr>
 				<tr>
@@ -116,8 +131,8 @@
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="tʃ">tʃ</th>
-					<th colspan="1" id="dʒ">dʒ</th>
+					<th colspan="1" id="tʃ" class="phone-button" onClick="reverseClick(15)">tʃ</th>
+					<th colspan="1" id="dʒ" class="phone-button" onClick="reverseClick(16)">dʒ</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
@@ -126,17 +141,17 @@
 				<tr>
 					<th scope="row" colspan="2">Nasal</th>
 					<th colspan="1"></th>
-					<th colspan="1" id="m">m</th>
+					<th colspan="1" id="m" class="phone-button" onClick="reverseClick(17)">m</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="n">n</th>
+					<th colspan="1" id="n" class="phone-button" onClick="reverseClick(18)">n</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="ŋ">ŋ</th>
+					<th colspan="1" id="ŋ" class="phone-button" onClick="reverseClick(19)">ŋ</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 				</tr>
@@ -149,7 +164,7 @@
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="l">l</th>
+					<th colspan="1" id="l" class="phone-button" onClick="reverseClick(21)">l</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
@@ -168,7 +183,7 @@
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="ɹ">ɹ</th>
+					<th colspan="1" id="ɹ" class="phone-button" onClick="reverseClick(20)">ɹ</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
@@ -177,7 +192,7 @@
 				<tr>
 					<th scope="row" colspan="2">Glide</th>
 					<th colspan="1"></th>
-					<th colspan="1" id="w">w</th>
+					<th colspan="1" id="w" class="phone-button" onClick="reverseClick(22)">w</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
@@ -185,7 +200,7 @@
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
-					<th colspan="1" id="j">j</th>
+					<th colspan="1" id="j" class="phone-button" onClick="reverseClick(23)">j</th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
 					<th colspan="1"></th>
@@ -391,22 +406,69 @@ function plusMinus(element_num) {
 		_tempMain.className = "button plus";
 	}
 	recalcFeats();
-	stuff(element_num);
+	stuff();
 }
 
-function stuff(element_num) {
+function stuff() {
 	
 	phones.forEach(function(val) {
 		if (mainSet.size == 0)
-			document.getElementById(val).style.backgroundColor = "red";
+			document.getElementById(val).className = "phone-button-red";
 		else {
 			if (mainSet.has(val))
-				document.getElementById(val).style.backgroundColor = "white";
+				document.getElementById(val).className = "phone-button"
 			else
-				document.getElementById(val).style.backgroundColor = "black";
+				document.getElementById(val).className = "phone-button-black";
 		}
 	})
 }
+
+const phone_p = [true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_b = [true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_t = [true, false, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_d = [true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_k = [true, false, false, false, false, true, false, false, false, true, false, false, false, false, false, false, false, false];
+const phone_g = [true, true, false, false, false, true, false, false, false, true, false, false, false, false, false, false, false, false];
+const phone_f = [true, false, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_v = [true, true, true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_s = [true, false, true, true, true, false, false, true, false, false, false, false, false, false, false, false, false, false];
+const phone_z = [true, true, true, true, true, false, false, true, false, false, false, false, false, false, false, false, false, false];
+const phone_th = [true, false, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_vth = [true, true, true, true, true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_sh = [true, false, false, true, true, true, false, true, false, false, false, false, false, false, false, false, false, false];
+const phone_vsh = [true, true, false, true, true, true, false, true, false, false, false, false, false, false, false, true, false, false];
+const phone_h = [false, false, false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false];
+const phone_tsh = [true, false, false, true, false, true, false, true, false, false, false, false, true, false, false, false, false, false];
+const phone_vtsh = [true, true, false, true, false, true, false, true, false, false, false, false, true, false, false, false, false, false];
+const phone_m = [true, true, true, false, false, false, true, false, true, false, true, false, false, false, false, false, false, false];
+const phone_n = [true, true, true, true, false, false, true, false, true, false, true, false, false, false, false, false, false, false];
+const phone_ng = [true, true, false, false, false, true, true, false, true, true, true, false, false, false, false, false, false, false];
+const phone_r = [true, true, false, true, true, false, true, false, false, false, false, true, false, true, false, false, false, false];
+const phone_l = [true, true, true, true, true, false, true, false, true, false, false, true, false, false, true, false, false, false];
+const phone_w = [false, true, false, false, true, true, true, false, false, true, false, false, false, false, false, false, true, false];
+const phone_j = [false, true, false, false, true, true, true, false, false, false, false, false, false, false, false, false, false, false];
+
+const phoneFlags = [phone_p, phone_b,  phone_t,  phone_d,  phone_k,  phone_g,  phone_f,  phone_v,  phone_s,  phone_z,  phone_th,  phone_vth,  phone_sh,  phone_vsh,  phone_h,  phone_tsh,  phone_vtsh,  phone_m,  phone_n,  phone_ng,  phone_r,  phone_l,  phone_w,  phone_j]
+
+function reverseClick(element_num){
+	flags = phoneFlags[element_num];
+	var _tempMain;
+	var _temp;
+	for (let i = 0; i < 18; i++) {
+		_tempMain = document.getElementById(i);
+		_temp = document.getElementById(i).firstElementChild;
+		if (flags[i] == true) {
+			_temp.innerText = "+";
+			_tempMain.className = "button plus";
+		}else {
+			_temp.innerText = "-";
+			_tempMain.className = "button minus";
+		}
+	}
+	recalcFeats();
+	stuff();
+}
+
 </script>
 
 </body>
