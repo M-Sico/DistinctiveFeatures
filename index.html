@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="description" content="Webpage description goes here" />
+  <meta charset="utf-8">
+  <title>Change_me</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Sico">
+  <style>
+	.button {
+		display: inline-block;
+		padding: 10px 20px;
+		margin: 10px 10px;
+		border: solid 1px;
+		border-radius: 5px;
+	}
+	.inactive {
+		background-color: #cccccc;
+	}.inactive:hover {
+		background-color: #999999;
+	}
+	.minus {
+		background-color: #cc8f8f;
+	}.minus:hover {
+		background-color: #996b6b;
+	}
+	.plus {
+		background-color: #8fcc92;
+	}.plus:hover {
+		background-color: #6b996d;
+	}
+	.table-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin: 5vh;
+    }
+	.button-container {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-template-rows: repeat(5, 1fr);
+		gap: .5vw; 
+	}
+	.button-container > div {
+		padding: 5px;
+		text-align: center;
+		font-size: 18px;
+	}
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+
+<body>
+	<div class="table-container">
+		<table border="1px solid #000" style="border-collapse: collapse">
+			<caption>IPA Chart</caption>
+			<thead>
+				<th scope="col" rowspan="2">Manner of Articulation</th>
+				<th scope="col" colspan="16">Place of Articulation</th>
+			</thead>
+			<thead>
+				<tr>
+					<th scope="col" colspan="2"></th>
+					<th scope="col" colspan="2">Bilabial</th>
+					<th scope="col" colspan="2">Labiodental</th>
+					<th scope="col" colspan="2">Interdental</th>
+					<th scope="col" colspan="2">Alveolar</th>
+					<th scope="col" colspan="2">Palatal</th>
+					<th scope="col" colspan="2">Velar</th>
+					<th scope="col" colspan="2">Glottal</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th scope="row" colspan="2">Stop</th>
+					<th colspan="1" id="p">p</th>
+					<th colspan="1" id="b">b</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="t">t</th>
+					<th colspan="1" id="d">d</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="k">k</th>
+					<th colspan="1" id="g">g</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">Fricative</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="f">f</th>
+					<th colspan="1" id="v">v</th>
+					<th colspan="1" id="θ">θ</th>
+					<th colspan="1" id="ð">ð</th>
+					<th colspan="1" id="s">s</th>
+					<th colspan="1" id="z">z</th>
+					<th colspan="1" id="ʃ">ʃ</th>
+					<th colspan="1" id="ʒ">ʒ</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="h">h</th>
+					<th colspan="1"></th>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">Affricate</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="tʃ">tʃ</th>
+					<th colspan="1" id="dʒ">dʒ</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">Nasal</th>
+					<th colspan="1"></th>
+					<th colspan="1" id="m">m</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="n">n</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="ŋ">ŋ</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">Lateral</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="l">l</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">Rhotic</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="ɹ">ɹ</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+				</tr>
+				<tr>
+					<th scope="row" colspan="2">Glide</th>
+					<th colspan="1"></th>
+					<th colspan="1" id="w">w</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1" id="j">j</th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+					<th colspan="1"></th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="button-container">
+		<div id="0" class="button inactive" onclick="plusMinus('0')">
+			<span></span>consonantal
+		</div>
+		<div id="1" class="button inactive" onclick="plusMinus('1')">
+			<span></span>voice
+
+		</div>
+		<div id="2" class="button inactive" onclick="plusMinus('2')">
+			<span></span>anterior
+
+		</div>
+		<div id="3" class="button inactive" onclick="plusMinus('3')">
+			<span></span>coronal
+
+		</div>
+		<div id="4" class="button inactive" onclick="plusMinus('4')">
+			<span></span>continuant
+
+		</div>
+		<div id="5" class="button inactive" onclick="plusMinus('5')">
+			<span></span>high
+
+		</div>
+		<div id="6" class="button inactive" onclick="plusMinus('6')">
+			<span></span>sonorant
+
+		</div>
+		<div id="7" class="button inactive" onclick="plusMinus('7')">
+			<span></span>strident
+
+		</div>
+		<div id="8" class="button inactive" onclick="plusMinus('8')">
+			<span></span>syllabic
+
+		</div>
+		<div id="9" class="button inactive" onclick="plusMinus('9')">
+			<span></span>back
+
+		</div>
+		<div id="10" class="button inactive" onclick="plusMinus('10')">
+			<span></span>nasal
+
+		</div>
+		<div id="11" class="button inactive" onclick="plusMinus('11')">
+			<span></span>vocalic
+
+		</div>
+		<div id="12" class="button inactive" onclick="plusMinus('12')">
+			<span></span>delayed release
+
+		</div>
+		<div id="13" class="button inactive" onclick="plusMinus('13')">
+			<span></span>rhotic
+
+		</div>
+		<div id="14" class="button inactive" onclick="plusMinus('14')">
+			<span></span>lateral
+
+		</div>
+		<div id="15" class="button inactive" onclick="plusMinus('15')">
+			<span></span>low
+
+		</div>
+		<div></div>
+		<div id="16" class="button inactive" onclick="plusMinus('16')">
+			<span></span>round
+
+		</div>
+		<div id="17" class="button inactive" onclick="plusMinus('17')">
+			<span></span>tense
+		</div>
+	</div>
+<script>
+function isSuperset(set, subset) {
+  for (const elem of subset) {
+    if (!set.has(elem)) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function union(setA, setB) {
+  const _union = new Set(setA);
+  for (const elem of setB) {
+    _union.add(elem);
+  }
+  return _union;
+}
+
+function intersection(setA, setB) {
+  const _intersection = new Set();
+  for (const elem of setB) {
+    if (setA.has(elem)) {
+      _intersection.add(elem);
+    }
+  }
+  return _intersection;
+}
+
+function symmetricDifference(setA, setB) {
+  const _difference = new Set(setA);
+  for (const elem of setB) {
+    if (_difference.has(elem)) {
+      _difference.delete(elem);
+    } else {
+      _difference.add(elem);
+    }
+  }
+  return _difference;
+}
+
+function difference(setA, setB) {
+  const _difference = new Set(setA);
+  for (const elem of setB) {
+    _difference.delete(elem);
+  }
+  return _difference;
+}
+
+const phones = new Set(['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'θ', 'ð', 'ʃ', 'ʒ', 'h', 'tʃ', 'dʒ', 'm', 'n', 'ŋ', 'ɹ', 'l', 'w', 'j']);
+const pConsonantal = new Set(['p', 'b', 't', 'd', 'k', 'g', 'f', 'v', 's', 'z', 'θ', 'ð', 'ʃ', 'ʒ', 'tʃ', 'dʒ', 'm', 'n', 'ŋ', 'ɹ', 'l']);
+const mConsonantal = difference(phones, pConsonantal);
+const pVoice = new Set(['b', 'd', 'g', 'v', 'z', 'ð', 'ʒ', 'dʒ', 'm', 'n', 'ŋ', 'ɹ', 'l', 'w', 'j']);
+const mVoice = difference(phones, pVoice);
+const pAnterior = new Set(['p', 'b', 't', 'd', 'f', 'v', 's', 'z', 'θ', 'ð', 'm', 'n', 'l']);
+const mAnterior = difference(phones, pAnterior);
+const pCoronal = new Set(['t', 'd', 's', 'z', 'θ', 'ð', 'ʃ', 'ʒ', 'tʃ', 'dʒ', 'n', 'ɹ', 'l']);
+const mCoronal = difference(phones, pCoronal);
+const pContinuant = new Set(['f', 'v', 's', 'z', 'θ', 'ð', 'ʃ', 'ʒ', 'h', 'ɹ', 'l', 'w', 'j']);
+const mContinuant = difference(phones, pContinuant);
+const pHigh = new Set(['k', 'g', 'ʃ', 'ʒ', 'tʃ', 'dʒ', 'ŋ', 'w', 'j']);
+const mHigh = difference(phones, pHigh);
+const pSonorant = new Set(['m', 'n', 'ŋ', 'ɹ', 'l', 'w', 'j']);
+const mSonorant = difference(phones, pSonorant);
+const pStrident = new Set(['s', 'z', 'ʃ', 'ʒ', 'tʃ', 'dʒ']);
+const mStrident = difference(phones, pStrident);
+const pSyllabic = new Set(['m', 'n', 'ŋ', 'l']);
+const mSyllabic = difference(phones, pSyllabic);
+const pBack = new Set(['k', 'g', 'ŋ', 'w']);
+const mBack = difference(phones, pBack);
+const pNasal = new Set(['m', 'n', 'ŋ']);
+const mNasal = difference(phones, pNasal);
+const pVocalic = new Set(['ɹ', 'l']);
+const mVocalic = difference(phones, pVocalic);
+const pDR = new Set(['tʃ', 'dʒ']);
+const mDR = difference(phones, pDR);
+const pRhotic = new Set(['ɹ']);
+const mRhotic = difference(phones, pRhotic);
+const pLateral = new Set(['l']);
+const mLateral = difference(phones, pLateral);
+const pLow = new Set(['ʒ']);
+const mLow = difference(phones, pLow);
+const pRound = new Set(['w']);
+const mRound = difference(phones, pRound);
+const pTense = new Set();
+const mTense = phones;
+let mainSet = phones;
+
+var pFeatures = [pConsonantal, pVoice, pAnterior, pCoronal, pContinuant, pHigh, pSonorant, pStrident, pSyllabic, pBack, pNasal, pVocalic, pDR, pRhotic, pLateral, pLow, pRound, pTense];
+
+var mFeatures = [mConsonantal, mVoice, mAnterior, mCoronal, mContinuant, mHigh, mSonorant, mStrident, mSyllabic, mBack, mNasal, mVocalic, mDR, mRhotic, mLateral, mLow, mRound, mTense];
+
+var flags = ["2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2"]
+
+function recalcFeats() {
+	mainSet = phones;
+	for (let i = 0; i < flags.length; i++) {
+		if (flags[i] == true) {
+			mainSet = intersection(mainSet, pFeatures[i]);			
+		}
+		if (flags[i] == false) {
+			mainSet = intersection(mainSet, mFeatures[i]);
+		}
+	}
+}
+
+function plusMinus(element_num) {
+	var _tempMain = document.getElementById(element_num);
+	var _temp = document.getElementById(element_num).firstElementChild;
+	if (_temp.innerText[0] == "+") {
+		_temp.innerText = "-";
+		flags[element_num] = false;
+		_tempMain.className = "button minus";
+	}
+	else if (_temp.innerText[0] == "-") {
+		_temp.innerText = "";
+		flags[element_num] = "2";
+		_tempMain.className = "button inactive";
+	}
+	else {
+		_temp.innerText = "+";
+		flags[element_num] = true;
+		_tempMain.className = "button plus";
+	}
+	recalcFeats();
+	stuff(element_num);
+}
+
+function stuff(element_num) {
+	
+	phones.forEach(function(val) {
+		if (mainSet.size == 0)
+			document.getElementById(val).style.backgroundColor = "red";
+		else {
+			if (mainSet.has(val))
+				document.getElementById(val).style.backgroundColor = "white";
+			else
+				document.getElementById(val).style.backgroundColor = "black";
+		}
+	})
+}
+</script>
+
+</body>
+</html>
