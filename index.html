@@ -8,12 +8,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="author" content="Sico">
   <style>
+	.button-container {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		align-items: baseline;
+		padding: 2vh;
+		margin: 2vw;
+	}
 	.button {
-		display: inline-block;
-		padding: 10px 20px;
-		margin: 10px 10px;
+		padding: 2vh 3vw;
+		flex-basis: 10vw;
+		align-self: center;
+		flex-grow: 1;
+		flex-shrink: 1;
+		text-align: center;
+		margin: 1vh 2vw;
 		border: solid 1px;
 		border-radius: 5px;
+		font-size: 18px;
 	}
 	.inactive {
 		background-color: #cccccc;
@@ -31,21 +46,18 @@
 		background-color: #6b996d;
 	}
 	.table-container {
-		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin: 5vh;
-    }
-	.button-container {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		grid-template-rows: repeat(5, 1fr);
-		gap: .5vw; 
+		margin: auto;
+		overflow-x: auto;
+    } .table-container > table {
+		margin:auto;
 	}
-	.button-container > div {
-		padding: 5px;
-		text-align: center;
-		font-size: 18px;
+	th {
+		padding: .5vh .5vw;
+	}	
+	.white-text {
+		color: white;
 	}
 	.phone-button {
 		background-color: #ffffff;
@@ -62,6 +74,14 @@
 	}.phone-button-red:hover {
 		background-color: #999999;
 	}
+	@media (max-width: 800px) {
+	  .button {
+		font-size: 14px;
+	  }
+	  .table-container {
+		font-size: 10px;
+	  }
+	}	
   </style>
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
@@ -273,13 +293,15 @@
 			<span></span>low
 
 		</div>
-		<div></div>
 		<div id="16" class="button inactive" onclick="plusMinus('16')">
 			<span></span>round
 
 		</div>
 		<div id="17" class="button inactive" onclick="plusMinus('17')">
 			<span></span>tense
+		</div>
+		<div id="18" class="button inactive" onclick="reset()">
+			RESET
 		</div>
 	</div>
 <script>
@@ -421,6 +443,20 @@ function stuff() {
 				document.getElementById(val).className = "phone-button-black";
 		}
 	})
+}
+
+function reset() {
+	flags = ["2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2", "2"];
+	var _tempMain;
+	var _temp;
+	for (let i = 0; i < 18; i++) {
+		_tempMain = document.getElementById(i);
+		_temp = document.getElementById(i).firstElementChild;
+		_temp.innerText = "";
+		_tempMain.className = "button inactive";
+	}
+	recalcFeats();
+	stuff();
 }
 
 const phone_p = [true, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
